@@ -162,7 +162,7 @@ h6 {
 }
 .button::before {
   content: "";
-  background: linear-gradient(-161deg,#5ec2a8 10.5%,#3ec5e7 98%);
+  background: linear-gradient(-161deg,#4ea78f 10.5%,#2f94ad 98%);
   position: absolute;
   top: 0;
   left: 0;
@@ -468,7 +468,7 @@ h6 {
   border-radius: 16px;
   background-color: #064952;
   color: #fff;
-  padding: 20px 30px;
+  padding: 20px 30px 30px 20px;
   text-align: center;
   font-style: italic;
   line-height: 122%;
@@ -642,6 +642,15 @@ h6 {
 }
 .swiper-button-lock {
   display: none!important
+}
+@media (min-width:1024.98px) {
+  .reviews__slide {
+    transition: margin .3s
+  }
+  .reviews__slide.swiper-slide-next,
+  .reviews__slide.swiper-slide-prev {
+    margin-right: 74px!important
+  }
 }
 @media (min-width:1440.98px) {
   .step-card__title {
