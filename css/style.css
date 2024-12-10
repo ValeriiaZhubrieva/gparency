@@ -1,0 +1,874 @@
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url(../fonts/Inter-Bold.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal
+}
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url(../fonts/Inter-Black.woff2) format("woff2");
+  font-weight: 900;
+  font-style: normal
+}
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url(../fonts/Inter-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal
+}
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url(../fonts/Inter-Italic.woff2) format("woff2");
+  font-weight: 400;
+  font-style: italic
+}
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url(../fonts/Inter-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: 0
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box
+}
+*::after,
+*::before {
+  display: inline-block
+}
+body,
+html {
+  height: 100%;
+  min-width: 320px
+}
+body {
+  color: #000;
+  line-height: 1;
+  font-family: Inter;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+button,
+input,
+textarea {
+  font-family: Inter;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: rgba(0,0,0,0)
+}
+input,
+textarea {
+  width: 100%
+}
+label {
+  display: inline-block
+}
+button,
+option,
+select {
+  cursor: pointer
+}
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none
+}
+ul li {
+  list-style: none
+}
+img {
+  vertical-align: top
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit
+}
+.lock body {
+  overflow: hidden;
+  touch-action: none;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: none
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden
+}
+@supports (overflow:clip) {
+  .wrapper {
+    overflow: clip
+  }
+}
+.wrapper>main {
+  flex: 1 1 auto
+}
+.wrapper>* {
+  min-width: 0
+}
+[class*=__container] {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(15px,10vw,150px)
+}
+[class*="--gc"] {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 15px 1fr minmax(auto,1280px) 1fr 15px
+}
+[class*="--gc"]>* {
+  min-width: 0;
+  grid-column: 3/4
+}
+.button {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  width: 100%;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: -.03em;
+  color: #fff;
+  min-height: 47px;
+  padding: 12px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #5ec2a8 linear-gradient(161deg,#5ec2a8 10.5%,#3ec5e7 98%);
+  position: relative;
+  z-index: 2
+}
+.button::before {
+  content: "";
+  background: linear-gradient(-161deg,#5ec2a8 10.5%,#3ec5e7 98%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity .3s
+}
+.swiper-button-next,
+.swiper-button-prev {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-content: center;
+  transition: opacity .3s
+}
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0
+}
+.menu__body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: -100%;
+  top: 0;
+  z-index: 20;
+  overflow: auto;
+  background-color: var(--alternative-contrast-blue);
+  padding: 20px 0 40px 0;
+  color: var(--base-white);
+  transition: left .3s
+}
+.menu-open .menu__body {
+  left: 0
+}
+.menu__container {
+  max-width: 1430px
+}
+.menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px
+}
+.menu-header__logo {
+  max-width: 159px;
+  width: 100%;
+  margin-right: auto
+}
+.menu-header__logo img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.menu-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px
+}
+.menu-header__btn {
+  padding: 11px 24px;
+  min-height: 44px;
+  font-size: 16px
+}
+.menu-header__links {
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+.menu-header__link {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  line-height: 150%;
+  transition: color .3s
+}
+.icon-menu {
+  display: grid;
+  place-content: center;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  z-index: 5;
+  color: var(--grayscale-gray-08);
+  transition: color .3s
+}
+.close-menu {
+  display: grid;
+  place-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: inherit;
+  border: 1px solid var(--base-white);
+  transition: color .3s,border .3s
+}
+.process__top-text {
+  font-style: italic;
+  font-size: 20px;
+  line-height: 185%;
+  text-align: center;
+  padding: 60px 0
+}
+.process__body {
+  padding: 70px 0 57px 0;
+  background-image: url(../img/process-bg.jpg);
+  background-position: top right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden
+}
+.process__steps {
+  display: grid;
+  align-content: start;
+  gap: 57px
+}
+.process__bottom {
+  padding: 70px 0;
+  background: #f0f3f4 linear-gradient(270deg,rgba(34,226,181,.11) 0,rgba(32,217,206,.11) 43.5%,rgba(29,205,239,.11) 100%);
+  display: grid;
+  justify-content: center
+}
+.step-card {
+  display: flex
+}
+.step-card:first-child .step-card__num {
+  padding-right: 12%
+}
+.step-card__content {
+  max-width: 715px;
+  width: 100%;
+  background-color: #fff;
+  padding: 42px 260px 0 69px;
+  display: flex;
+  flex-direction: column
+}
+.step-card__title {
+  font-weight: 600;
+  line-height: 117%;
+  letter-spacing: -.03em;
+  color: #011511;
+  margin-bottom: 24px
+}
+.step-card__title span {
+  display: block;
+  color: #20d9ce
+}
+.step-card__text {
+  flex: 1 1 auto;
+  line-height: 164%;
+  margin-bottom: 20px
+}
+.step-card__num {
+  align-self: center;
+  margin-bottom: -57px
+}
+.step-card__num img {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain
+}
+.step-card__info {
+  align-self: end;
+  max-width: 485px;
+  width: 100%;
+  box-shadow: 0 4px 11px 0 rgba(0,0,0,.15);
+  background: #20d9ce;
+  margin: 57px 0 57px -215px;
+  padding: 48px 53px
+}
+.step-card__info-title {
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 144%;
+  color: #fff;
+  margin-bottom: 25px
+}
+.step-card__info-text {
+  line-height: 164%
+}
+.mortgages__container {
+  max-width: 1340px
+}
+.mortgages__top {
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px
+}
+.mortgages__title {
+  font-size: 20px;
+  line-height: 175%;
+  text-align: center
+}
+.mortgages__logo {
+  max-width: 307px
+}
+.mortgages__logo img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.mortgages__slider {
+  overflow: visible!important;
+  background-color: #20d9ce;
+  position: relative
+}
+.mortgages__slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1;
+  -webkit-transform: translate(-50%,0);
+  transform: translate(-50%,0);
+  height: 100%;
+  width: 100vw;
+  background-color: #20d9ce
+}
+.mortgages__arrows {
+  position: absolute;
+  right: 52px;
+  bottom: 39px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 20px
+}
+.mortgages-card {
+  background-color: #064952;
+  display: flex
+}
+.mortgages-card__img {
+  max-width: 486px;
+  width: 100%;
+  display: grid
+}
+.mortgages-card__img img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 486/560;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.mortgages-card__body {
+  width: 100%;
+  padding: 72px 52px 102px 52px;
+  color: #fff;
+  display: grid;
+  align-content: start;
+  gap: 25px
+}
+.mortgages-card__label {
+  font-size: 15px;
+  line-height: 180%
+}
+.mortgages-card__value {
+  font-size: 24px
+}
+.mortgages-card__price {
+  line-height: 100%;
+  color: #20d9ce
+}
+.about {
+  padding: 100px 0 247px 0;
+  background: url(../img/about/about-bg.svg) left bottom/1024px 265px repeat-x;
+  margin-bottom: 45px;
+  position: relative
+}
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 21%;
+  z-index: -1;
+  background: #f0f3f4 linear-gradient(270deg,#22e2b5 0,#20d9ce 43.5%,#1dcdef 100%);
+  opacity: .11
+}
+.about__container {
+  max-width: 1223px
+}
+.about__body {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px
+}
+.about__block {
+  max-width: 386px;
+  width: 100%
+}
+.about__quote {
+  border-radius: 16px;
+  background-color: #064952;
+  color: #fff;
+  padding: 20px 30px;
+  text-align: center;
+  font-style: italic;
+  line-height: 122%;
+  margin-bottom: 40px;
+  position: relative
+}
+.about__quote span {
+  font-weight: 700;
+  color: #22e2b5
+}
+.about__quote::after {
+  content: "";
+  position: absolute;
+  bottom: -34px;
+  left: 50%;
+  -webkit-transform: rotate(45deg) translate(-50%,0);
+  transform: rotate(45deg) translate(-50%,0);
+  width: 40px;
+  height: 40px;
+  background-color: #064952
+}
+.about__author {
+  display: grid;
+  align-content: start;
+  justify-content: center;
+  gap: 24px
+}
+.about__author img {
+  max-width: 220px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%
+}
+.about__name {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 156%;
+  text-align: center
+}
+.about__content {
+  max-width: 434px;
+  width: 100%
+}
+.about__info {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 167%;
+  box-shadow: 0 4px 11px 0 rgba(0,0,0,.15);
+  background-color: #fff;
+  padding: 36px 29px 36px 39px
+}
+.about__info:not(:last-child) {
+  margin-bottom: 30px
+}
+.about__text {
+  padding: 0 29px 0 39px;
+  font-size: 15px;
+  line-height: 167%
+}
+.about__text:not(:last-child) {
+  margin-bottom: 37px
+}
+.about__btn {
+  margin: 0 auto
+}
+.reviews {
+  padding-top: 71px
+}
+.reviews__body {
+  background: url(../img/reviews-bg.jpg) center/cover no-repeat;
+  color: #fff;
+  padding-bottom: 39px;
+  display: grid
+}
+.reviews__container {
+  max-width: 1243px;
+  display: grid;
+  align-items: start
+}
+.reviews__logo {
+  max-width: 134px;
+  margin: -71px auto 43px auto
+}
+.reviews__logo img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.reviews__slider {
+  min-width: 0;
+  overflow: visible!important
+}
+.reviews__wrapper:not(:last-child) {
+  margin-bottom: 40px
+}
+.reviews__arowws {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px
+}
+.review-card {
+  border-radius: 27px;
+  background-color: #fff;
+  color: #000;
+  padding: 0 39px 39px 39px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px
+}
+.review-card__like {
+  margin-top: -16px;
+  max-width: 63px
+}
+.review-card__like img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.review-card__text {
+  font-weight: 400;
+  max-width: 346px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 167%
+}
+.review-card__stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px
+}
+.review-card__star {
+  max-width: 20px
+}
+.review-card__star img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.swiper {
+  overflow: hidden
+}
+.swiper-initialized {
+  touch-action: pan-y
+}
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  display: flex;
+  position: relative
+}
+.swiper-vertical .swiper-wrapper {
+  flex-direction: column
+}
+.swiper-autoheight .swiper-wrapper {
+  align-items: flex-start
+}
+.swiper-initialized .swiper-slide {
+  flex-shrink: 0
+}
+.swiper-android .swiper-slide,
+.swiper-android .swiper-wrapper {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0)
+}
+.swiper-button-lock {
+  display: none!important
+}
+@media (min-width:1440.98px) {
+  .step-card__title {
+    font-size: 30px
+  }
+  .mortgages-card__price {
+    font-size: 48px
+  }
+  .about__quote {
+    font-size: 27px
+  }
+}
+@media (max-width:1440.98px)and (max-width:320px) {
+  .step-card__num {
+    max-width: 70px
+  }
+}
+@media (max-width:1200.98px) {
+  .step-card__content {
+    padding: 42px 200px 0 20px
+  }
+  .step-card__info {
+    margin: 57px 0 57px -180px;
+    padding: 48px 30px
+  }
+}
+@media (max-width:1024.98px) {
+  .menu-header {
+    gap: 8px
+  }
+  .menu-header__actions {
+    gap: 8px
+  }
+  .menu-header__links {
+    gap: 8px
+  }
+  .menu-header__link {
+    width: 40px;
+    height: 40px;
+    justify-content: center
+  }
+  .menu-header__link span {
+    display: none
+  }
+  .step-card__content {
+    padding: 30px 140px 0 20px
+  }
+  .step-card__info {
+    margin: 34px 0 34px -120px;
+    padding: 30px 20px
+  }
+  .mortgages__arrows {
+    right: 30px;
+    bottom: 20px
+  }
+  .mortgages-card__body {
+    padding: 50px 20px 70px 20px
+  }
+  .mortgages-card__value {
+    font-size: 20px
+  }
+  .about__info {
+    padding: 20px 15px
+  }
+  .about__text {
+    padding: 0 15px
+  }
+}
+@media (max-width:640.98px) {
+  [class*=__container] {
+    padding: 0 15px
+  }
+  .menu__container {
+    padding: 0 12px
+  }
+  .process__top-text {
+    font-size: 16px
+  }
+  .process__body {
+    padding: 30px 0 80px 0
+  }
+  .process__steps {
+    gap: 70px
+  }
+  .process__bottom {
+    padding: 50px 0
+  }
+  .step-card {
+    flex-direction: column;
+    background-color: #fff;
+    padding: 30px 15px 0 15px
+  }
+  .step-card:first-child .step-card__num {
+    padding-right: 3%
+  }
+  .step-card__content {
+    padding: 0
+  }
+  .step-card__title {
+    font-size: 20px
+  }
+  .step-card__title {
+    margin-bottom: 14px
+  }
+  .step-card__text {
+    margin-bottom: 10px
+  }
+  .step-card__num {
+    margin-bottom: 0
+  }
+  .step-card__info {
+    max-width: none;
+    margin: 0 0 -50px 0;
+    padding: 20px 15px
+  }
+  .step-card__info-title {
+    margin-bottom: 10px
+  }
+  .mortgages__top {
+    padding: 40px 0
+  }
+  .mortgages__title {
+    font-size: 16px
+  }
+  .mortgages__logo {
+    max-width: 200px
+  }
+  .mortgages__slider {
+    background-color: rgba(0,0,0,0);
+    margin: 0 -15px
+  }
+  .mortgages__slider::before {
+    display: none
+  }
+  .mortgages-card {
+    flex-direction: column
+  }
+  .mortgages-card__img {
+    max-width: none
+  }
+  .mortgages-card__body {
+    padding: 20px 20px 70px 20px;
+    gap: 15px
+  }
+  .mortgages-card__value {
+    font-size: 18px
+  }
+  .mortgages-card__price {
+    font-size: 28px
+  }
+  .about {
+    padding: 40px 0 120px 0;
+    background: url(../img/about/about-bg.svg) left bottom/512px 132.5px repeat-x
+  }
+  .about::before {
+    height: 50%
+  }
+  .about__body {
+    flex-direction: column
+  }
+  .about__block {
+    margin: 0 auto
+  }
+  .about__quote {
+    font-size: 18px
+  }
+  .about__content {
+    max-width: none
+  }
+  .reviews__wrapper:not(:last-child) {
+    margin-bottom: 20px
+  }
+  .review-card {
+    padding: 0 15px 30px 15px;
+    gap: 15px
+  }
+}
+@media (max-width:549.98px) {
+  .menu-header__btn {
+    max-width: 100%
+  }
+}
+@media (min-width:640.98px)and (max-width:1440.98px) {
+  .step-card__title {
+    font-size: clamp(20px ,11.98775px + 1.25vw ,30px)
+  }
+  .mortgages-card__price {
+    font-size: clamp(28px ,11.9755px + 2.5vw ,48px)
+  }
+  .about__quote {
+    font-size: clamp(18px ,10.788975px + 1.125vw ,27px)
+  }
+}
+@media (max-width:1440.98px)and (min-width:1280px) {
+  .step-card__num {
+    max-width: 200px
+  }
+}
+@media (max-width:1440.98px)and (min-width:320px)and (max-width:1280px) {
+  .step-card__num {
+    max-width: clamp(70px ,26.6666666667px + 13.5416666667vw ,200px)
+  }
+}
+@media (any-hover:hover) {
+  .button:hover::before {
+    opacity: 1
+  }
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    opacity: .5
+  }
+  .menu-header__link:hover {
+    color: var(--colors-grayscale-06)
+  }
+  .icon-menu:hover {
+    color: var(--colors-grayscale-06)
+  }
+  .close-menu:hover {
+    color: var(--colors-grayscale-06);
+    border-color: var(--colors-grayscale-06)
+  }
+}
+@media (any-hover:none) {
+  .icon-menu {
+    cursor: default
+  }
+  .close-menu {
+    cursor: default
+  }
+}
